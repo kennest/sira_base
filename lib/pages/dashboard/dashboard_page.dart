@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sira_base/pages/my_scaffold.dart';
+import 'package:sira_base/widgets/line_chart.dart';
+import 'package:sira_base/widgets/pie_chart.dart';
+import 'package:sira_base/widgets/radar_chart.dart';
 
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({Key? key}) : super(key: key);
@@ -13,14 +16,36 @@ class _DashBoardPageState extends State<DashBoardPage> {
   Widget build(BuildContext context) {
     return MyScaffold(
       route: "/dash",
-      body: SingleChildScrollView(
-          child: Column(
+      body: Column(
         children: [
-          Center(
-            child: CircularProgressIndicator(),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            children: [
+              LimitedBox(
+                maxHeight: MediaQuery.of(context).size.height / 2,
+                maxWidth: MediaQuery.of(context).size.width,
+                child: PieChartSample1(),
+              ),
+              LimitedBox(
+                maxHeight: MediaQuery.of(context).size.height / 2,
+                maxWidth: MediaQuery.of(context).size.width,
+                child: LineChartSample1(),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              LimitedBox(
+                maxHeight: MediaQuery.of(context).size.height,
+                maxWidth: MediaQuery.of(context).size.width / 2,
+                child: RadarChartSample1(),
+              ),
+            ],
           )
         ],
-      )),
+      ),
     );
   }
 }

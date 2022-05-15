@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Align(
                   alignment: Alignment.center,
                   child: LimitedBox(
-                    maxHeight: MediaQuery.of(context).size.height / 3.5,
+                    maxHeight: MediaQuery.of(context).size.height / 2.5,
                     maxWidth: MediaQuery.of(context).size.width / 3,
                     child: Card(
                       child: Padding(

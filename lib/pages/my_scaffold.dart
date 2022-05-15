@@ -158,6 +158,7 @@ class MyScaffold extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(8.0),
         child: body,
       ),
     );
