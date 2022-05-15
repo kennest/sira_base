@@ -49,6 +49,11 @@ class MyScaffold extends StatelessWidget {
         ),
       ],
     ),
+    AdminMenuItem(
+      title: 'Déconnexion',
+      route: '/',
+      icon: Icons.logout,
+    )
   ];
 
   final List<AdminMenuItem> _adminMenuItems = const [
@@ -77,7 +82,11 @@ class MyScaffold extends StatelessWidget {
         title: const Text('SIRA BASE'),
         actions: [
           PopupMenuButton<AdminMenuItem>(
-            child: const Icon(Icons.account_circle),
+            padding: EdgeInsets.all(15),
+            child: const Icon(
+              Icons.account_circle,
+              size: 50,
+            ),
             itemBuilder: (context) {
               return _adminMenuItems.map((AdminMenuItem item) {
                 return PopupMenuItem<AdminMenuItem>(

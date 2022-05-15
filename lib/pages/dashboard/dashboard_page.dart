@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sira_base/pages/my_scaffold.dart';
+import 'package:sira_base/widgets/data_table.dart';
 import 'package:sira_base/widgets/line_chart.dart';
 import 'package:sira_base/widgets/pie_chart.dart';
 import 'package:sira_base/widgets/radar_chart.dart';
@@ -25,12 +26,10 @@ class _DashBoardPageState extends State<DashBoardPage> {
             children: [
               LimitedBox(
                 maxHeight: MediaQuery.of(context).size.height / 2,
-                maxWidth: MediaQuery.of(context).size.width,
+                maxWidth: MediaQuery.of(context).size.width / 2,
                 child: PieChartSample1(),
               ),
-              LimitedBox(
-                maxHeight: MediaQuery.of(context).size.height / 2,
-                maxWidth: MediaQuery.of(context).size.width,
+              Expanded(
                 child: LineChartSample1(),
               )
             ],
@@ -41,6 +40,15 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 maxHeight: MediaQuery.of(context).size.height,
                 maxWidth: MediaQuery.of(context).size.width / 2,
                 child: RadarChartSample1(),
+              ),
+            ],
+          ),
+          Wrap(
+            children: [
+              LimitedBox(
+                maxHeight: MediaQuery.of(context).size.height,
+                maxWidth: MediaQuery.of(context).size.width,
+                child: DataTable2SimpleDemo(),
               ),
             ],
           )
