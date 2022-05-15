@@ -3,14 +3,17 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:sira_base/utilities/dio_instance.dart';
-import 'package:sira_base/utilities/logger.dart';
 
-final getIt = GetIt.instance;
+import '../utilities/logger.dart';
+
+var getIt = GetIt.instance;
 
 class AuthService {
-  doLogin() async {
-    var dioInstance = getIt.get<DioInstance>().init();
+  doLogin(data) async {
+    Dio dioInstance = getIt.get<DioInstance>().init();
+    // var response = await dioInstance.get("https://kiwi.ci/api/v1/banners");
+    // logInfo(response.data.toString());
     await Future.delayed(Duration(seconds: 3));
-    logInfo("Authenticated successfuly");
+    logInfo("${toString()} Authenticated successfuly ");
   }
 }

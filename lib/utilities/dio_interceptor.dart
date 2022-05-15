@@ -22,7 +22,7 @@ class CustomInterceptors extends InterceptorsWrapper {
       options.headers["Authorization"] = "$token";
     }
     // options.headers["x-device"] = "Android";
-    options.headers["X-TOKEN"] = Constants.XTOKEN;
+    // options.headers["X-TOKEN"] = Constants.XTOKEN;
     options.headers["X-Plateform"] = "mobile";
     if (options.headers["Content-Type"] == null) {
       options.headers["Content-Type"] = "application/json";
