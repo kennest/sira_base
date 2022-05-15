@@ -13,35 +13,39 @@ class MyScaffold extends StatelessWidget {
 
   final List<AdminMenuItem> _sideBarItems = const [
     AdminMenuItem(
-      title: 'Dashboard',
+      title: 'Tableau de bord',
       route: '/',
       icon: Icons.dashboard,
     ),
     AdminMenuItem(
-      title: 'Top Level',
-      icon: Icons.file_copy,
+      title: 'Utilisateurs et permissions',
+      icon: Icons.lock_open,
       children: [
         AdminMenuItem(
-          title: 'Second Level Item 1',
+          title: 'Utilisateurs',
+          icon: Icons.account_box,
           route: '/secondLevelItem1',
         ),
         AdminMenuItem(
-          title: 'Second Level Item 2',
+          title: 'Permissions',
+          icon: Icons.lock_clock,
           route: '/secondLevelItem2',
         ),
+      ],
+    ),
+    AdminMenuItem(
+      title: 'Paramètres',
+      icon: Icons.settings,
+      children: [
         AdminMenuItem(
-          title: 'Third Level',
-          children: [
-            AdminMenuItem(
-              title: 'Third Level Item 1',
-              route: '/thirdLevelItem1',
-            ),
-            AdminMenuItem(
-              title: 'Third Level Item 2',
-              route: '/thirdLevelItem2',
-              icon: Icons.image,
-            ),
-          ],
+          title: 'Gestion du Profil',
+          icon: Icons.person,
+          route: '/thirdLevelItem1',
+        ),
+        AdminMenuItem(
+          title: 'Langue',
+          route: '/thirdLevelItem2',
+          icon: Icons.language,
         ),
       ],
     ),
@@ -105,12 +109,12 @@ class MyScaffold extends StatelessWidget {
       ),
       sideBar: SideBar(
         backgroundColor: const Color(0xFFEEEEEE),
-        activeBackgroundColor: Colors.black26,
+        activeBackgroundColor: Colors.greenAccent,
         borderColor: const Color(0xFFE7E7E7),
-        iconColor: Colors.black87,
+        iconColor: Colors.black26,
         activeIconColor: Colors.blue,
         textStyle: const TextStyle(
-          color: Color(0xFF337ab7),
+          color: Colors.green,
           fontSize: 13,
         ),
         activeTextStyle: const TextStyle(
