@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:sira_base/pages/dashboard/dashboard_page.dart';
+import 'package:get_it/get_it.dart';
+import 'package:sira_base/services/auth_service.dart';
+import 'package:sira_base/utilities/dio_instance.dart';
+
+final getIt = GetIt.instance;
+
+setup() {
+  getIt.registerSingleton<AuthService>(AuthService());
+  getIt.registerSingleton<DioInstance>(DioInstance());
+}
 
 void main() {
+  setup();
   runApp(const MyApp());
 }
 
@@ -37,7 +48,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'SIRA BASE',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.

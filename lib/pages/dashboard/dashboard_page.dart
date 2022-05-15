@@ -13,9 +13,14 @@ class _DashBoardPageState extends State<DashBoardPage> {
   Widget build(BuildContext context) {
     return MyScaffold(
       route: "/dash",
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
+      body: SingleChildScrollView(
+          child: Column(
+        children: [
+          Center(
+            child: CircularProgressIndicator(),
+          )
+        ],
+      )),
     );
   }
 }
