@@ -6,8 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sira_base/services/auth_service.dart';
 import 'package:sira_base/utilities/logger.dart';
 
-final getIt = GetIt.instance;
-
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -17,6 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
+  bool? authenticated = false;
   final continents = [
     'Africa',
     'Asia',
@@ -27,8 +26,8 @@ class _LoginPageState extends State<LoginPage> {
   ];
   @override
   void initState() {
-    var authService = getIt.get<AuthService>();
-    authService.doLogin("");
+    // var authService = getIt.get<AuthService>();
+    // authService.doLogin("");
     // TODO: implement initState
     super.initState();
   }
@@ -53,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Align(
                     alignment: Alignment.center,
                     child: Icon(
-                      Icons.lock,
+                      authenticated == false ? Icons.lock : Icons.lock_open,
                       size: 80,
                       color: Colors.grey,
                     ))),
@@ -73,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Column(
                               children: <Widget>[
                                 FormBuilderTextField(
-                                  name: "Login",
+                                  name: "email",
                                   autofocus: true,
                                   decoration: const InputDecoration(
                                       hintText: "Email",
@@ -112,6 +111,12 @@ class _LoginPageState extends State<LoginPage> {
                                             // await Get.snackbar(
                                             //         "Form Submitted", "success")
                                             //     .show();
+                                            setState(() {
+                                              authenticated = true;
+                                            });
+                                            await Future.delayed(
+                                                Duration(seconds: 2));
+
                                             Get.toNamed("/dashboard");
                                           } else {
                                             logError("validation failed");

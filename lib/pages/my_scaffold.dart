@@ -24,12 +24,12 @@ class MyScaffold extends StatelessWidget {
         AdminMenuItem(
           title: 'Utilisateurs',
           icon: Icons.account_box,
-          route: '/secondLevelItem1',
+          route: '/users',
         ),
         AdminMenuItem(
           title: 'Permissions',
           icon: Icons.lock_clock,
-          route: '/secondLevelItem2',
+          route: '/permissions',
         ),
       ],
     ),
@@ -82,6 +82,7 @@ class MyScaffold extends StatelessWidget {
         title: const Text('SIRA BASE'),
         actions: [
           PopupMenuButton<AdminMenuItem>(
+            color: Colors.green,
             padding: EdgeInsets.all(15),
             child: const Icon(
               Icons.account_circle,

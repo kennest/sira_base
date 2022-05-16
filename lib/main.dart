@@ -3,6 +3,9 @@ import 'package:get/route_manager.dart';
 import 'package:sira_base/pages/auth/login_page.dart';
 import 'package:sira_base/pages/dashboard/dashboard_page.dart';
 import 'package:get_it/get_it.dart';
+import 'package:sira_base/pages/dashboard/permissions/permission_form.dart';
+import 'package:sira_base/pages/dashboard/permissions/permission_page.dart';
+import 'package:sira_base/pages/dashboard/users/user_page.dart';
 import 'package:sira_base/services/auth_service.dart';
 import 'package:sira_base/services/data_service.dart';
 import 'package:sira_base/utilities/dio_instance.dart';
@@ -10,13 +13,14 @@ import 'package:sira_base/utilities/dio_instance.dart';
 final getIt = GetIt.instance;
 
 setup() {
+  getIt.registerSingleton<DioInstance>(DioInstance());
   getIt.registerSingleton<DataService>(DataService());
   getIt.registerSingleton<AuthService>(AuthService());
-  getIt.registerSingleton<DioInstance>(DioInstance());
 }
 
 void main() {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // setup();
+  WidgetsFlutterBinding.ensureInitialized();
   setup();
   runApp(const MyApp());
 }
@@ -39,12 +43,12 @@ class _MyAppState extends State<MyApp> {
         return const LoginPage();
       case '/dashboard':
         return const DashBoardPage();
-      case '/secondLevelItem2':
-        return DashBoardPage();
-      case '/thirdLevelItem1':
-        return DashBoardPage();
+      case '/users':
+        return const UserPage();
+      case '/permissions':
+        return const PermissionPage();
       case '/thirdLevelItem2':
-        return DashBoardPage();
+        return const DashBoardPage();
     }
     return null;
   }
