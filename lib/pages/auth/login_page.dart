@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:get_it/get_it.dart';
-import 'package:sira_base/services/auth_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sira_base/utilities/logger.dart';
-
-final getIt = GetIt.instance;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -26,8 +23,8 @@ class _LoginPageState extends State<LoginPage> {
   ];
   @override
   void initState() {
-    var authService = getIt.get<AuthService>();
-    authService.doLogin("");
+    // var authService = getIt.get<AuthService>();
+    // authService.doLogin("");
     // TODO: implement initState
     super.initState();
   }
@@ -36,19 +33,33 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("SIRA CONNECTION HUB"),
+          title: Text(
+            "SIRA CONNECTION HUB",
+            style:
+                GoogleFonts.aBeeZee(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
           backgroundColor: Colors.lightGreen,
         ),
         body: Stack(
           alignment: Alignment.center,
           children: [
             Positioned(
+                top: MediaQuery.of(context).size.height / 6,
+                left: MediaQuery.of(context).size.width / 2.1,
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Icon(
+                      Icons.lock,
+                      size: 80,
+                      color: Colors.grey,
+                    ))),
+            Positioned(
                 top: MediaQuery.of(context).size.height / 3.5,
                 left: MediaQuery.of(context).size.width / 3,
                 child: Align(
                   alignment: Alignment.center,
                   child: LimitedBox(
-                    maxHeight: MediaQuery.of(context).size.height / 2.5,
+                    maxHeight: MediaQuery.of(context).size.height / 3,
                     maxWidth: MediaQuery.of(context).size.width / 3,
                     child: Card(
                       child: Padding(
@@ -58,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Column(
                               children: <Widget>[
                                 FormBuilderTextField(
-                                  name: "Login",
+                                  name: "email",
                                   autofocus: true,
                                   decoration: const InputDecoration(
                                       hintText: "Email",
@@ -83,8 +94,10 @@ class _LoginPageState extends State<LoginPage> {
                                             .secondary,
                                         child: Text(
                                           "Connexion".toUpperCase(),
-                                          style: const TextStyle(
-                                              color: Colors.white),
+                                          style: GoogleFonts.aBeeZee(
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         onPressed: () async {
                                           _formKey.currentState!.save();

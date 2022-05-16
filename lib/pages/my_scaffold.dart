@@ -24,7 +24,7 @@ class MyScaffold extends StatelessWidget {
         AdminMenuItem(
           title: 'Utilisateurs',
           icon: Icons.account_box,
-          route: '/secondLevelItem1',
+          route: '/users',
         ),
         AdminMenuItem(
           title: 'Permissions',
