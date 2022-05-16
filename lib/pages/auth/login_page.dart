@@ -13,6 +13,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
+  bool? authenticated = false;
   final continents = [
     'Africa',
     'Asia',
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Align(
                     alignment: Alignment.center,
                     child: Icon(
-                      Icons.lock,
+                      authenticated == false ? Icons.lock : Icons.lock_open,
                       size: 80,
                       color: Colors.grey,
                     ))),
@@ -108,6 +109,12 @@ class _LoginPageState extends State<LoginPage> {
                                             // await Get.snackbar(
                                             //         "Form Submitted", "success")
                                             //     .show();
+                                            setState(() {
+                                              authenticated = true;
+                                            });
+                                            await Future.delayed(
+                                                Duration(seconds: 2));
+
                                             Get.toNamed("/dashboard");
                                           } else {
                                             logError("validation failed");

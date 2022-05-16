@@ -44,11 +44,11 @@ class _MyAppState extends State<MyApp> {
       case '/dashboard':
         return const DashBoardPage();
       case '/users':
-        return UserPage();
+        return const UserPage();
       case '/permissions':
-        return PermissionPage();
+        return const PermissionPage();
       case '/thirdLevelItem2':
-        return DashBoardPage();
+        return const DashBoardPage();
     }
     return null;
   }
