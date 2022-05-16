@@ -1,16 +1,16 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sira_base/pages/dashboard/users/user_form.dart';
+import 'package:sira_base/pages/dashboard/permissions/permission_form.dart';
 
-class UserList extends StatefulWidget {
-  const UserList({Key? key}) : super(key: key);
+class PermissionList extends StatefulWidget {
+  const PermissionList({Key? key}) : super(key: key);
 
   @override
-  State<UserList> createState() => _UserListState();
+  State<PermissionList> createState() => _PermissionListState();
 }
 
-class _UserListState extends State<UserList> {
+class _PermissionListState extends State<PermissionList> {
   BuildContext? dialogContext;
 
   Future<void> _showMyDialog() async {
@@ -21,7 +21,7 @@ class _UserListState extends State<UserList> {
         dialogContext = context;
         return AlertDialog(
           contentPadding: EdgeInsets.zero,
-          title: const Text('Créer un utilisateur'),
+          title: const Text('Assigner une permission'),
           content: Builder(
             builder: (context) {
               // Get available height and width of the build area of this widget. Make a choice depending on the size.
@@ -29,9 +29,9 @@ class _UserListState extends State<UserList> {
               var width = MediaQuery.of(context).size.width;
 
               return Container(
-                height: height - 200,
+                height: height - 500,
                 width: width - 400,
-                child: UserForm(dialogContext: dialogContext),
+                child: PermissionForm(dialogContext: dialogContext),
               );
             },
           ),
@@ -91,10 +91,7 @@ class _UserListState extends State<UserList> {
                   label: Text('Prénom'.toUpperCase()),
                 ),
                 DataColumn(
-                  label: Text('Date de naissance'.toUpperCase()),
-                ),
-                DataColumn(
-                  label: Text('Email'.toUpperCase()),
+                  label: Text('Permissions accordées'.toUpperCase()),
                 ),
               ],
               rows: List<DataRow>.generate(
@@ -103,9 +100,23 @@ class _UserListState extends State<UserList> {
                         DataCell(Text('A' * (10 - index % 10)), onTap: (() {})),
                         DataCell(Text('B' * (10 - (index + 5) % 10)),
                             onTap: (() {})),
-                        DataCell(Text('C' * (15 - (index + 5) % 10)),
-                            onTap: (() {})),
-                        DataCell(Text('D' * (15 - (index + 10) % 10)),
+                        DataCell(
+                            Row(
+                              children: [
+                                Chip(
+                                  label: Text(
+                                    "Modifier Etat",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  backgroundColor: Colors.yellow,
+                                ),
+                                Chip(
+                                  label: Text("Supprimer Etat",
+                                      style: TextStyle(color: Colors.white)),
+                                  backgroundColor: Colors.blueAccent,
+                                )
+                              ],
+                            ),
                             onTap: (() {})),
                       ])))
         ],

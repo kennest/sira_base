@@ -1,17 +1,19 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sira_base/utilities/logger.dart';
 
-class UserForm extends StatefulWidget {
+class PermissionForm extends StatefulWidget {
   BuildContext? dialogContext;
-  UserForm({Key? key, this.dialogContext}) : super(key: key);
+  PermissionForm({Key? key, this.dialogContext}) : super(key: key);
 
   @override
-  State<UserForm> createState() => _UserFormState();
+  State<PermissionForm> createState() => _PermissionFormState();
 }
 
-class _UserFormState extends State<UserForm> {
+class _PermissionFormState extends State<PermissionForm> {
   final _formKey = GlobalKey<FormBuilderState>();
   @override
   Widget build(BuildContext context) {
@@ -21,41 +23,37 @@ class _UserFormState extends State<UserForm> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              FormBuilderTextField(
-                name: "name",
+              FormBuilderDropdown<String>(
+                name: "user",
                 autofocus: true,
+                items: [
+                  DropdownMenuItem(
+                    child: Text("Oulai Kennest Davis"),
+                    value: "user-one",
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Severin Lenaud"),
+                    value: "user-two",
+                  ),
+                ],
                 decoration: const InputDecoration(
-                    hintText: "Nom", label: Text("Nom :")),
+                    hintText: "Utilisateur", label: Text("Utilisateur :")),
               ),
               const SizedBox(height: 15),
-              FormBuilderTextField(
-                name: "lastname",
-                autofocus: true,
-                decoration: const InputDecoration(
-                    hintText: "Prénom", label: Text("Prénom :")),
-              ),
-              const SizedBox(height: 15),
-              FormBuilderDateTimePicker(
-                name: "birthdate",
-                autofocus: true,
-                decoration: const InputDecoration(
-                    hintText: "Date de naissance",
-                    label: Text("Date de naissance :")),
-              ),
-              const SizedBox(height: 15),
-              FormBuilderTextField(
-                name: "email",
-                autofocus: true,
-                decoration: const InputDecoration(
-                    hintText: "Email", label: Text("Email :")),
-              ),
-              const SizedBox(height: 15),
-              FormBuilderTextField(
-                name: "Password",
-                obscureText: true,
-                decoration: const InputDecoration(
-                    hintText: "Mot de passe", label: Text("Mot de passe :")),
-              ),
+              FormBuilderChoiceChip<String>(name: "rights", options: [
+                FormBuilderFieldOption(
+                  value: "add",
+                  child: Text("Ajouter"),
+                ),
+                FormBuilderFieldOption(
+                  value: "update",
+                  child: Text("Modifier"),
+                ),
+                FormBuilderFieldOption(
+                  value: "delete",
+                  child: Text("Supprimer"),
+                ),
+              ]),
               const SizedBox(height: 15),
               Row(
                 children: <Widget>[

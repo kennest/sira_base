@@ -3,6 +3,8 @@ import 'package:get/route_manager.dart';
 import 'package:sira_base/pages/auth/login_page.dart';
 import 'package:sira_base/pages/dashboard/dashboard_page.dart';
 import 'package:get_it/get_it.dart';
+import 'package:sira_base/pages/dashboard/permissions/permission_form.dart';
+import 'package:sira_base/pages/dashboard/permissions/permission_page.dart';
 import 'package:sira_base/pages/dashboard/users/user_page.dart';
 import 'package:sira_base/services/auth_service.dart';
 import 'package:sira_base/services/data_service.dart';
@@ -43,8 +45,8 @@ class _MyAppState extends State<MyApp> {
         return const DashBoardPage();
       case '/users':
         return UserPage();
-      case '/thirdLevelItem1':
-        return DashBoardPage();
+      case '/permissions':
+        return PermissionPage();
       case '/thirdLevelItem2':
         return DashBoardPage();
     }

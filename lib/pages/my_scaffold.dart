@@ -29,7 +29,7 @@ class MyScaffold extends StatelessWidget {
         AdminMenuItem(
           title: 'Permissions',
           icon: Icons.lock_clock,
-          route: '/secondLevelItem2',
+          route: '/permissions',
         ),
       ],
     ),
