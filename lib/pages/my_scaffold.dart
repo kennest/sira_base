@@ -82,6 +82,7 @@ class MyScaffold extends StatelessWidget {
         title: const Text('SIRA BASE'),
         actions: [
           PopupMenuButton<AdminMenuItem>(
+            color: Colors.green,
             padding: EdgeInsets.all(15),
             child: const Icon(
               Icons.account_circle,

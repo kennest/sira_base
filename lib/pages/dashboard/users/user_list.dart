@@ -21,6 +21,8 @@ class _UserListState extends State<UserList> {
         dialogContext = context;
         return AlertDialog(
           contentPadding: EdgeInsets.zero,
+          insetPadding: EdgeInsets.zero,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
           title: const Text('Créer un utilisateur'),
           content: Builder(
             builder: (context) {
