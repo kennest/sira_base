@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 /// Example without a datasource
 class DataTable2SimpleDemo extends StatelessWidget {
-  const DataTable2SimpleDemo();
+  DataTable2SimpleDemo();
 
   @override
   Widget build(BuildContext context) {

@@ -11,16 +11,17 @@ class UserList extends StatefulWidget {
 }
 
 class _UserListState extends State<UserList> {
-  var userForm = UserForm();
+  BuildContext? dialogContext;
 
   Future<void> _showMyDialog() async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
+        dialogContext = context;
         return AlertDialog(
           contentPadding: EdgeInsets.zero,
-          title: const Text('AlertDialog Title'),
+          title: const Text('Créer un utilisateur'),
           content: Builder(
             builder: (context) {
               // Get available height and width of the build area of this widget. Make a choice depending on the size.
@@ -30,13 +31,13 @@ class _UserListState extends State<UserList> {
               return Container(
                 height: height - 350,
                 width: width - 400,
-                child: userForm,
+                child: UserForm(dialogContext: dialogContext),
               );
             },
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Approve'),
+              child: const Text('Fermer'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

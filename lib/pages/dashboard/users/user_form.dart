@@ -6,7 +6,8 @@ import 'package:sira_base/pages/my_scaffold.dart';
 import 'package:sira_base/utilities/logger.dart';
 
 class UserForm extends StatefulWidget {
-  const UserForm({Key? key}) : super(key: key);
+  BuildContext? dialogContext;
+  UserForm({Key? key, this.dialogContext}) : super(key: key);
 
   @override
   State<UserForm> createState() => _UserFormState();
@@ -79,6 +80,7 @@ class _UserFormState extends State<UserForm> {
                           //         "Form Submitted", "success")
                           //     .show();
                           // Get.toNamed("/dashboard");
+                          Navigator.pop(widget.dialogContext!);
                         } else {
                           logError("validation failed");
                         }
